@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Monitor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000;
+            margin: 20px;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        
+        /* Styling for tables */
+        .measurement-table, .alert-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .measurement-table th, .measurement-table td, .alert-table th, .alert-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .measurement-table th, .alert-table th {
+            background-color: #f2f2f2;
+        }
+        .dark-mode .measurement-table th, .dark-mode .alert-table th {
+            background-color: #333;
+        }
+
+        /* Scrollable table */
+        .table-container {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+        }
+
+        /* Graph container */
+        .graph-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .graph {
+            width: 48%;
+            height: 400px;
+            margin-bottom: 20px;
+        }
+        .full-width-graph {
+            width: 100%;
+            height: 400px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Water Quality Monitor</h1>
+
+    <!-- Date range filters -->
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate">
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate">
+    <button id="fetchData">Fetch Data</button>
+
+    <!-- Dark mode toggle -->
+    <button id="darkModeToggle">Toggle Dark Mode</button>
+
+    <!-- Main Data Table (Scrollable) -->
+    <h2>Water Quality Data</h2>
+    <div id="dashboard" class="table-container"></div>
+
+    <!-- Alert Table for Critical Values -->
+    <h2>⚠️ Values Needing Immediate Attention</h2>
+    <div id="alerts"></div>
+
+    <!-- Graphs Container -->
+    <h2>Water Quality Graphs</h2>
+    <div class="graph-container" id="graphs"></div>
+
+    <!-- Load Chart.js and External Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="WaterQualityData.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
